@@ -1,10 +1,10 @@
 strategies:
   spread_idea:
     code: spread   
-    desciption: "Verbreitung der Idee des Anarchismus"
+    description: "Verbreitung der Idee des Anarchismus"
   establish_behavior_pattern:
     code: establ 
-    description: "Gemeinsames ueben anarchistischer Verhaltensmuster"
+    description: "Etablierung anarchistischer Verhaltensmuster"
   build_infrastructure:
     code: build
     description: "Aufbau anarchistischer Infrastruktur"
@@ -15,9 +15,21 @@ resources:
   time:
     code: time
     description: "Verfuegbare Zeit"
-  people:
-    code: people
-    description: "Anzahl der Aktiven"
+  transformers:
+    code: transformers
+    description: "Anzahl der Transformierenden"
+steps:
+  - start: 
+      spread: 0
+      establ: 0
+      build: 0
+      happy: 5
+      time: 5
+      transformers: 1
+    goal:
+      spread: 10
+      establ: 10
+      build: 1
 actions:
   - code: demo
     description: "Lass uns eine Demo organisieren"
@@ -25,7 +37,7 @@ actions:
       time: -1
     effects:
       happy: +3
-      people: +1
+      transformers: +1
       spread: +1
       establ: +1
   - code: intro
@@ -34,7 +46,7 @@ actions:
       time: -1
     effects:
       happy: +1
-      people: +2
+      transformers: +2
       spread: +2
       establ: +1
 
