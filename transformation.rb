@@ -6,6 +6,11 @@ class Transformation
     @@steps << Step.new(step)
   end
 
+  @@actions = []
+  CONFIG['actions'].each do |action|
+    @@actions << Action.new(action)
+  end
+
   def initialize
     puts "Willkommen zur 'Transformation'!"
 
@@ -27,6 +32,12 @@ class Transformation
       game_loop
     end
 
+    def print_possible_actions
+      @@actions.each_with_index do |action, index|
+        puts "#{index}: #{action.print}"
+      end
+    end
+
     def decide_on_action
       print "Weiter! moegliche Aktionen:\n"
       print_possible_actions
@@ -39,11 +50,11 @@ class Transformation
         puts "Du hast keine Zahl eingegeben"
         return 
       end
-      if index > CONFIG['actions'].length - 1
+      if index > @@actions.length - 1
         puts "du hast keine gueltige Zahl eingegeben" 
         return
       end
-      CONFIG['actions'][index]
+      @@actions[index]
     end
 
     def game_loop
@@ -51,21 +62,15 @@ class Transformation
 
       action = decide_on_action
       game_loop unless action
-      puts "fuehre Aktion '#{action['description']}' aus"
+      puts "fuehre Aktion '#{action.description}' aus"
 
-      @state.update(action['costs'])
-      @state.update(action['effects'])
+      @state.update(action.costs)
+      @state.update(action.effects)
       return if not @state.check_wellbeing()
       if @state.check_goal(@current_step)
         enter_next_step
       else
         game_loop
-      end
-    end
-
-    def print_possible_actions
-      CONFIG["actions"].each_with_index do |action, index|
-        puts "#{index}: #{action["description"]} (costs #{action["costs"]}, effects #{action["effects"]})"
       end
     end
 

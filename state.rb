@@ -14,10 +14,10 @@ class StateOfTransformation
     @infrastructure >= goal['infrastructure']
   end
 
-  def update(transform)
-    @idea += transform['spread'] if transform.include?('spread')
-    @behavior += transform['establ'] if transform.include?('establ')
-    @infrastructure += transform['build'] if transform.include?('build')
+  def update(action_diff)
+    @idea += action_diff.get('spread')
+    @behavior += action_diff.get('establ')
+    @infrastructure += action_diff.get('build')
   end
 
   def to_s
@@ -64,10 +64,10 @@ class StateOfWellbeing
     (!goal.include?('transformers') || @transformers >= goal['transformers'])
   end
 
-  def update(transform)
-    @happiness += transform['happy'] if  transform.include?('happy')
-    @time += transform['time'] if transform.include?('time')
-    @transformers += transform['transformers'] if transform.include?('transformers')
+  def update(action_diff)
+    @happiness += action_diff.get('happy')
+    @time += action_diff.get('time')
+    @transformers += action_diff.get('transformers')
   end
 
   def to_s
@@ -109,9 +109,9 @@ class State
     end
   end
 
-  def update(transform)
-    @transformation.update(transform)
-    @wellbeing.update(transform)
+  def update(action_diff)
+    @transformation.update(action_diff)
+    @wellbeing.update(action_diff)
   end
 
   def check_wellbeing()
