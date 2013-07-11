@@ -52,6 +52,37 @@ actions:
       transformers: +2
       spread: +2
       establ: +1
+  - code: drop_out
+    description: "Du kuendigst deine Lohnarbeitsanstellung"
+    costs: 
+      build: -1
+    effect:
+      happy: +3
+      establ: +1
+      transformers: +1
+      time: +2
+  - code: info_laden
+    description: "Du eroeffnest einen Info- und Umsonstladen"
+    costs: 
+      time: -2
+    effects: 
+      build: +1
+      establ: +2
+      spread: +3
+      happy: +1
+  - code: wg
+    description: "Du ziehst in eine WG mit netten Leuten"
+    effects:
+      happy: +2
+      establ: +1
+      time: +2
+  - code: night
+    description: "Du beschliesst nachts laenger wach zu bleiben, um die Transformation zu beschleunigen"
+    effects:
+      happy: -3
+      time: +2
+      establ: -1
+
 
       
 

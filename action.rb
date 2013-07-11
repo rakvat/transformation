@@ -3,7 +3,7 @@ class ActionDiff
   def initialize(config)
     @diff = {}
     FACTORS.each do |key|
-      @diff[key] = config.include?(key) ? config[key] : 0
+      @diff[key] = (config && config.include?(key)) ? config[key] : 0
     end
   end
 

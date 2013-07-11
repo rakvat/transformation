@@ -9,9 +9,9 @@ class StateOfTransformation
   end
 
   def goal_achived?(goal)
-    @idea >= goal['spread'] &&
-    @behavior >= goal['establ'] &&
-    @infrastructure >= goal['infrastructure']
+    (!goal.include?('spread') || @idea >= goal['spread']) &&
+    (!goal.include?('establ') || @behavior >= goal['establ']) &&
+    (!goal.include?('build') || @infrastructure >= goal['build'])
   end
 
   def update(action_diff)

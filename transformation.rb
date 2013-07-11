@@ -26,9 +26,14 @@ class Transformation
   private
     def enter_next_step 
       @current_step_id = @current_step_id == nil ? 0 : @current_step_id + 1
+      if (@current_step_id >= @@steps.length)
+        puts "Es sind keine weiteren Schritte zur Transformation verfuegbar. Gehe deinen eigenen Weg."
+        return
+      end
       @current_step = @@steps[@current_step_id]
       @state = State.new(@current_step.start)
-      puts "#{@current_step.description}\n\n"
+      puts "#{@current_step.description}"
+      puts "Ziel: #{@current_step.goal}\n\n"
       game_loop
     end
 
@@ -58,7 +63,8 @@ class Transformation
     end
 
     def game_loop
-      puts "#{@state.print}\n\n"
+      puts "Status: #{@state.print}\n\n"
+      puts "Ziel dieser Stufe: #{@current_step.goal}"
 
       action = decide_on_action
       game_loop unless action
