@@ -70,8 +70,7 @@ class Transformation
       game_loop unless action
       puts "fuehre Aktion '#{action.description}' aus"
 
-      @state.update(action.costs)
-      @state.update(action.effects)
+      @state.update(action.effect)
       return if not @state.check_wellbeing()
       if @state.check_goal(@current_step)
         enter_next_step

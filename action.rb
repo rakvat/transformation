@@ -1,4 +1,4 @@
-class ActionDiff 
+class Effect 
   FACTORS = ['spread', 'establ', 'build', 'happy', 'time', 'transformers']
   def initialize(config)
     @diff = {}
@@ -24,16 +24,15 @@ end
 
 class Action
 
-  attr_reader :costs, :effects, :description
+  attr_reader :effect, :description
 
   def initialize(config)
-    @costs = ActionDiff.new(config['costs'])
-    @effects = ActionDiff.new(config['effects'])
+    @effect = Effect.new(config['effect'])
     @description = config['description']
   end
 
   def to_s
-    "costs: #{@costs}, effects: #{@effects}"
+    "effect: #{@effect}"
   end
 
   def print

@@ -2,33 +2,33 @@ class StateOfTransformation
 
   @@config = CONFIG["strategies"]
   
-  def initialize(idea, behavior, infrastructure)
-    @idea = idea
-    @behavior = behavior
-    @infrastructure = infrastructure
+  def initialize(spread, establ, build)
+    @spread = spread
+    @establ = establ
+    @build = build
   end
 
   def goal_achived?(goal)
-    (!goal.include?('spread') || @idea >= goal['spread']) &&
-    (!goal.include?('establ') || @behavior >= goal['establ']) &&
-    (!goal.include?('build') || @infrastructure >= goal['build'])
+    (!goal.include?('spread') || @spread >= goal['spread']) &&
+    (!goal.include?('establ') || @establ >= goal['establ']) &&
+    (!goal.include?('build') || @build >= goal['build'])
   end
 
   def update(action_diff)
-    @idea += action_diff.get('spread')
-    @behavior += action_diff.get('establ')
-    @infrastructure += action_diff.get('build')
+    @spread += action_diff.get('spread')
+    @establ += action_diff.get('establ')
+    @build += action_diff.get('build')
   end
 
   def to_s
-    "s: #{@idea}, e: #{@behavior}, b: #{@infrastructure}"  
+    "s: #{@spread}, e: #{@establ}, b: #{@build}"  
   end
 
   def print
     %Q{Stand der Transformation:
-  * #{@@config['spread_idea']['description']}: #{@idea}
-  * #{@@config['establish_behavior_pattern']['description']}: #{@behavior}
-  * #{@@config['build_infrastructure']['description']}: #{@infrastructure}}
+  * #{@@config['spread']['description']}: #{@spread}
+  * #{@@config['establ']['description']}: #{@establ}
+  * #{@@config['build']['description']}: #{@build}}
   end
 end
 
@@ -36,8 +36,8 @@ class StateOfWellbeing
 
   @@config = CONFIG["resources"]
 
-  def initialize(happiness, time, transformers)
-    @happiness = happiness
+  def initialize(happy, time, transformers)
+    @happy = happy
     @time = time
     @transformers = transformers
   end
@@ -47,7 +47,7 @@ class StateOfWellbeing
       puts "Es bleibt keine Zeit mehr zur Transformation.\n\n"
       return false
     end
-    if @happiness <=0
+    if @happy <=0
       puts "Du hast keine Freude mehr am Leben.\n\n"
       return false
     end
@@ -59,24 +59,24 @@ class StateOfWellbeing
   end
 
   def goal_achived?(goal)
-    (!goal.include?('happy') || @happyness >= goal['happy']) &&
+    (!goal.include?('happy') || @happy >= goal['happy']) &&
     (!goal.include?('time') || @time >= goal['time']) &&
     (!goal.include?('transformers') || @transformers >= goal['transformers'])
   end
 
   def update(action_diff)
-    @happiness += action_diff.get('happy')
+    @happy += action_diff.get('happy')
     @time += action_diff.get('time')
     @transformers += action_diff.get('transformers')
   end
 
   def to_s
-    "h: #{@happiness}, t: #{@time}, ##{@transformers}"
+    "h: #{@happy}, t: #{@time}, ##{@transformers}"
   end
 
   def print
     %Q{Stand der Befindlichkeiten:
-  * #{@@config['happiness']['description']}: #{@happiness}
+  * #{@@config['happy']['description']}: #{@happy}
   * #{@@config['time']['description']}: #{@time}
   * #{@@config['transformers']['description']}: #{@transformers}}
   end

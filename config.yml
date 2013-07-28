@@ -1,23 +1,17 @@
 debug: true
 strategies:
-  spread_idea:
-    code: spread   
+  spread:
     description: "Verbreitung der Idee des Anarchismus"
-  establish_behavior_pattern:
-    code: establ 
+  establ:
     description: "Etablierung anarchistischer Verhaltensmuster"
-  build_infrastructure:
-    code: build
+  build:
     description: "Aufbau anarchistischer Infrastruktur"
 resources:
-  happiness:
-    code: happy
+  happy:
     description: "Wohlfuehlfaktor innerhalb der Aktiven"
   time:
-    code: time
     description: "Verfuegbare Zeit"
   transformers:
-    code: transformers
     description: "Anzahl der Transformierenden"
 steps:
   - description: "Noch bist du alleine mit deinen Ideen zur Transformation in eine andere Gesellschaft. Dein erstes Ziel ist es eine Gruppe mit mindestens fünf Menschen zu bilden, ein Stueck Infrastruktur aufzubauen und auf lokaler Ebene fuer die Verbreitung der Idee das Anarchismus und der Etablierung anarchistischer Verhaltensmuster zu sorgen."
@@ -36,49 +30,45 @@ steps:
 actions:
   - code: demo
     description: "Lass uns eine Demo organisieren"
-    costs:
+    effect:
       time: -1
-    effects:
       happy: +3
       transformers: +1
       spread: +1
       establ: +1
   - code: intro
     description: "Veranstaltung 'Einfuehrung in die Anarchie'"
-    costs:
+    effect:
       time: -1
-    effects:
       happy: +1
       transformers: +2
       spread: +2
       establ: +1
   - code: drop_out
     description: "Du kuendigst deine Lohnarbeitsanstellung"
-    costs: 
-      build: -1
     effect:
+      build: -1
       happy: +3
       establ: +1
       transformers: +1
       time: +2
   - code: info_laden
     description: "Du eroeffnest einen Info- und Umsonstladen"
-    costs: 
+    effect: 
       time: -2
-    effects: 
       build: +1
       establ: +2
       spread: +3
       happy: +1
   - code: wg
     description: "Du ziehst in eine WG mit netten Leuten"
-    effects:
+    effect:
       happy: +2
       establ: +1
       time: +2
   - code: night
     description: "Du beschliesst nachts laenger wach zu bleiben, um die Transformation zu beschleunigen"
-    effects:
+    effect:
       happy: -3
       time: +2
       establ: -1
