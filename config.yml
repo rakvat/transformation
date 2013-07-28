@@ -1,12 +1,12 @@
 debug: true
-strategies:
+state_of_transformation:
   spread:
     description: "Verbreitung der Idee des Anarchismus"
   establ:
     description: "Etablierung anarchistischer Verhaltensmuster"
   build:
     description: "Aufbau anarchistischer Infrastruktur"
-resources:
+wellbeing:
   happy:
     description: "Wohlfuehlfaktor innerhalb der Aktiven"
   time:

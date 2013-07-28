@@ -1,6 +1,6 @@
 class StateOfTransformation
 
-  @@config = CONFIG["strategies"]
+  @@config = CONFIG['state_of_transformation']
   
   def initialize(spread, establ, build)
     @spread = spread
@@ -32,9 +32,9 @@ class StateOfTransformation
   end
 end
 
-class StateOfWellbeing
+class Wellbeing
 
-  @@config = CONFIG["resources"]
+  @@config = CONFIG['wellbeing']
 
   def initialize(happy, time, transformers)
     @happy = happy
@@ -89,7 +89,7 @@ class State
                         state_of_start['spread'],
                         state_of_start['establ'],
                         state_of_start['build'])
-    @wellbeing = StateOfWellbeing.new(
+    @wellbeing = Wellbeing.new(
                         state_of_start['happy'],
                         state_of_start['time'],
                         state_of_start['transformers'])
