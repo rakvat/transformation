@@ -11,11 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130801211543) do
+ActiveRecord::Schema.define(version: 20130802195648) do
 
   create_table "moves", force: true do |t|
     t.string   "code"
-    t.string   "desc"
+    t.string   "description"
     t.integer  "spread"
     t.integer  "establ"
     t.integer  "build"
@@ -25,5 +25,7 @@ ActiveRecord::Schema.define(version: 20130801211543) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "moves", ["code"], name: "index_moves_on_code", unique: true
 
 end
