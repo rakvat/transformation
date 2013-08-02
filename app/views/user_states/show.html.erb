@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @user_state.user_id %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @user_state.state_id %>
+</p>
+
+<%= link_to 'Edit', edit_user_state_path(@user_state) %> |
+<%= link_to 'Back', user_states_path %>

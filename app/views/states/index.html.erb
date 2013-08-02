@@ -1,0 +1,37 @@
+<h1>Listing states</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Spread</th>
+      <th>Establ</th>
+      <th>Build</th>
+      <th>Happy</th>
+      <th>Time</th>
+      <th>Transformers</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @states.each do |state| %>
+      <tr>
+        <td><%= state.spread %></td>
+        <td><%= state.establ %></td>
+        <td><%= state.build %></td>
+        <td><%= state.happy %></td>
+        <td><%= state.time %></td>
+        <td><%= state.transformers %></td>
+        <td><%= link_to 'Show', state %></td>
+        <td><%= link_to 'Edit', edit_state_path(state) %></td>
+        <td><%= link_to 'Destroy', state, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New State', new_state_path %>

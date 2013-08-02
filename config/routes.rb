@@ -1,4 +1,14 @@
 Transformation::Application.routes.draw do
+  resources :steps
+
+  resources :user_states
+
+  resources :user_steps
+
+  resources :users
+
+  resources :states
+
   resources :moves
 
   root 'moves#index'

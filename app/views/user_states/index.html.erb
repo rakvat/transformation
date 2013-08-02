@@ -1,0 +1,29 @@
+<h1>Listing user_states</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>State</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @user_states.each do |user_state| %>
+      <tr>
+        <td><%= user_state.user_id %></td>
+        <td><%= user_state.state_id %></td>
+        <td><%= link_to 'Show', user_state %></td>
+        <td><%= link_to 'Edit', edit_user_state_path(user_state) %></td>
+        <td><%= link_to 'Destroy', user_state, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New User state', new_user_state_path %>

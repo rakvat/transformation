@@ -1,0 +1,29 @@
+<h1>Listing user_steps</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Step</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @user_steps.each do |user_step| %>
+      <tr>
+        <td><%= user_step.user_id %></td>
+        <td><%= user_step.step_id %></td>
+        <td><%= link_to 'Show', user_step %></td>
+        <td><%= link_to 'Edit', edit_user_step_path(user_step) %></td>
+        <td><%= link_to 'Destroy', user_step, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New User step', new_user_step_path %>
