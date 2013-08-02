@@ -1,0 +1,41 @@
+<h1>Listing moves</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Code</th>
+      <th>Desc</th>
+      <th>Spread</th>
+      <th>Establ</th>
+      <th>Build</th>
+      <th>Happy</th>
+      <th>Time</th>
+      <th>Transformers</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @moves.each do |move| %>
+      <tr>
+        <td><%= move.code %></td>
+        <td><%= move.desc %></td>
+        <td><%= move.spread %></td>
+        <td><%= move.establ %></td>
+        <td><%= move.build %></td>
+        <td><%= move.happy %></td>
+        <td><%= move.time %></td>
+        <td><%= move.transformers %></td>
+        <td><%= link_to 'Show', move %></td>
+        <td><%= link_to 'Edit', edit_move_path(move) %></td>
+        <td><%= link_to 'Destroy', move, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Move', new_move_path %>
