@@ -4,7 +4,7 @@ describe "moves/edit" do
   before(:each) do
     @move = assign(:move, stub_model(Move,
       :id => "MyString",
-      :desc => "MyString",
+      :description => "MyString",
       :spread => 1,
       :establ => 1,
       :build => 1,
@@ -20,7 +20,7 @@ describe "moves/edit" do
     # Run the generator again with the --webrat flag if you want to use webrat matchers
     assert_select "form[action=?][method=?]", move_path(@move), "post" do
       assert_select "input#move_id[name=?]", "move[id]"
-      assert_select "input#move_desc[name=?]", "move[desc]"
+      assert_select "input#move_description[name=?]", "move[description]"
       assert_select "input#move_spread[name=?]", "move[spread]"
       assert_select "input#move_establ[name=?]", "move[establ]"
       assert_select "input#move_build[name=?]", "move[build]"
