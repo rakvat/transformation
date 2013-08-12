@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130803233228) do
+ActiveRecord::Schema.define(version: 20130812193225) do
 
   create_table "moves", force: true do |t|
     t.string   "code"
@@ -28,14 +28,6 @@ ActiveRecord::Schema.define(version: 20130803233228) do
 
   add_index "moves", ["code"], name: "index_moves_on_code", unique: true
 
-  create_table "state_joins", force: true do |t|
-    t.integer  "stateable_id"
-    t.string   "stateable_type"
-    t.integer  "state_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "states", force: true do |t|
     t.integer  "spread"
     t.integer  "establ"
@@ -45,6 +37,9 @@ ActiveRecord::Schema.define(version: 20130803233228) do
     t.integer  "transformers"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
+    t.integer  "step_start_id"
+    t.integer  "step_goal_id"
   end
 
   create_table "steps", force: true do |t|

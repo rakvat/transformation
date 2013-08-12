@@ -23,7 +23,7 @@ describe StepsController do
   # This should return the minimal set of attributes required to create a valid
   # Step. As you add validations to Step, be sure to
   # adjust the attributes here as well.
-  let(:valid_attributes) { { "id" => "MyString" } }
+  let(:valid_attributes) { { "code" => "MyString" } }
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
@@ -85,14 +85,14 @@ describe StepsController do
       it "assigns a newly created but unsaved step as @step" do
         # Trigger the behavior that occurs when invalid params are submitted
         Step.any_instance.stub(:save).and_return(false)
-        post :create, {:step => { "id" => "invalid value" }}, valid_session
+        post :create, {:step => { "code" => "invalid value" }}, valid_session
         assigns(:step).should be_a_new(Step)
       end
 
       it "re-renders the 'new' template" do
         # Trigger the behavior that occurs when invalid params are submitted
         Step.any_instance.stub(:save).and_return(false)
-        post :create, {:step => { "id" => "invalid value" }}, valid_session
+        post :create, {:step => { "code" => "invalid value" }}, valid_session
         response.should render_template("new")
       end
     end
@@ -106,8 +106,8 @@ describe StepsController do
         # specifies that the Step created on the previous line
         # receives the :update_attributes message with whatever params are
         # submitted in the request.
-        Step.any_instance.should_receive(:update).with({ "id" => "MyString" })
-        put :update, {:id => step.to_param, :step => { "id" => "MyString" }}, valid_session
+        Step.any_instance.should_receive(:update).with({ "code" => "MyString" })
+        put :update, {:id => step.to_param, :step => { "code" => "MyString" }}, valid_session
       end
 
       it "assigns the requested step as @step" do
@@ -128,7 +128,7 @@ describe StepsController do
         step = Step.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         Step.any_instance.stub(:save).and_return(false)
-        put :update, {:id => step.to_param, :step => { "id" => "invalid value" }}, valid_session
+        put :update, {:id => step.to_param, :step => { "code" => "invalid value" }}, valid_session
         assigns(:step).should eq(step)
       end
 
@@ -136,7 +136,7 @@ describe StepsController do
         step = Step.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         Step.any_instance.stub(:save).and_return(false)
-        put :update, {:id => step.to_param, :step => { "id" => "invalid value" }}, valid_session
+        put :update, {:id => step.to_param, :step => { "code" => "invalid value" }}, valid_session
         response.should render_template("edit")
       end
     end
