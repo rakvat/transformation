@@ -3,7 +3,7 @@ require 'spec_helper'
 describe "moves/new" do
   before(:each) do
     assign(:move, stub_model(Move,
-      :id => "MyString",
+      :code => "MyString",
       :description => "MyString",
       :spread => 1,
       :establ => 1,
@@ -19,8 +19,8 @@ describe "moves/new" do
 
     # Run the generator again with the --webrat flag if you want to use webrat matchers
     assert_select "form[action=?][method=?]", moves_path, "post" do
-      assert_select "input#move_id[name=?]", "move[id]"
-      assert_select "input#move_description[name=?]", "move[description]"
+      assert_select "input#move_code[name=?]", "move[code]"
+      assert_select "textarea#move_description[name=?]", "move[description]"
       assert_select "input#move_spread[name=?]", "move[spread]"
       assert_select "input#move_establ[name=?]", "move[establ]"
       assert_select "input#move_build[name=?]", "move[build]"

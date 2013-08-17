@@ -23,7 +23,7 @@ describe MovesController do
   # This should return the minimal set of attributes required to create a valid
   # Move. As you add validations to Move, be sure to
   # adjust the attributes here as well.
-  let(:valid_attributes) { { "id" => "MyString" } }
+  let(:valid_attributes) { { "code" => "MyString" } }
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
@@ -106,8 +106,8 @@ describe MovesController do
         # specifies that the Move created on the previous line
         # receives the :update_attributes message with whatever params are
         # submitted in the request.
-        Move.any_instance.should_receive(:update).with({ "id" => "MyString" })
-        put :update, {:id => move.to_param, :move => { "id" => "MyString" }}, valid_session
+        Move.any_instance.should_receive(:update).with({ "code" => "MyString" })
+        put :update, {:id => move.to_param, :move => { "code" => "MyString" }}, valid_session
       end
 
       it "assigns the requested move as @move" do
@@ -128,7 +128,7 @@ describe MovesController do
         move = Move.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         Move.any_instance.stub(:save).and_return(false)
-        put :update, {:id => move.to_param, :move => { "id" => "invalid value" }}, valid_session
+        put :update, {:id => move.to_param, :move => { "code" => "invalid value" }}, valid_session
         assigns(:move).should eq(move)
       end
 
@@ -136,7 +136,7 @@ describe MovesController do
         move = Move.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         Move.any_instance.stub(:save).and_return(false)
-        put :update, {:id => move.to_param, :move => { "id" => "invalid value" }}, valid_session
+        put :update, {:id => move.to_param, :move => { "code" => "invalid value" }}, valid_session
         response.should render_template("edit")
       end
     end
