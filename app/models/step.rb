@@ -4,4 +4,6 @@ class Step < ActiveRecord::Base
 
   has_one :start_state, class_name: State, foreign_key: "step_start_id"
   has_one :goal_state, class_name: State, foreign_key: "step_goal_id"
+
+  START_STEP = 'build_group'
 end

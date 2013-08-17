@@ -1,17 +1,15 @@
 Transformation::Application.routes.draw do
+  resources :moves
   resources :steps
-
-  resources :user_states
-
+  resources :users
+  resources :states
   resources :user_steps
 
-  resources :users
-
-  resources :states
-
-  resources :moves
-
   root 'moves#index'
+
+  get 'game' => 'game#login'
+  get 'game/:user' => 'game#play', as: :game_play
+  put 'game/:user/move/:move' => 'game#move', as: :game_move
 
 
   # The priority is based upon order of creation: first created -> highest priority.

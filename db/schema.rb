@@ -12,7 +12,6 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema.define(version: 20130812193225) do
-
   create_table "moves", force: true do |t|
     t.string   "code"
     t.string   "description"

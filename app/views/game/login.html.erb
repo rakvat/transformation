@@ -1,0 +1,25 @@
+<h1>Willkommen zur Transformation</h1>
+
+wähle eine_n Benutzer_in, um das Spiel zu starten oder an dem letzten Stand weiter zu spielen.
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.name %></td>
+        <td><%= link_to 'login', game_play_path(user) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Benutzer anlegen oder editieren', users_path %>
