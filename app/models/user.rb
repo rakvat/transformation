@@ -47,10 +47,11 @@ class User < ActiveRecord::Base
   end
 
   def check_goal
-    false
+    self.current_state >= self.current_step.goal_state
   end
 
   def go_to_next_step
+    # TODO: store next step in db
     false
   end
 end

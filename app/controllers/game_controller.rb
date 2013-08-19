@@ -38,10 +38,12 @@ class GameController < ApplicationController
         format.json { head :no_content }
       elsif @user.check_goal
         if (@user.go_to_next_step)
-          format.html { redirect_to game_play_path(@user), notice: 'Yey, du hast das Ziel der Stufe erreicht und kannst dir nun das Ziel der nächsten Stufe zur Transformation vornehmen.' }
+          format.html { redirect_to game_play_path(@user), notice: 'Yey, du hast das Ziel der Stufe erreicht und kannst dir nun die nächste Stufe zur Transformation vornehmen.' }
           format.json { head :no_content }
         else
-          format.html { redirect_to game_play_path(@user), notice: 'Yey, du hast das Ziel der Stufe erreicht und kannst dir nun das Ziel der nächsten Stufe zur Transformation vornehmen. Es sind keine weiteren Schritte zur Transformation in diese Software eingepflegt. Was willst du tun? Deinen eigenen Weg gehen?' }
+          flash.now[:notice] = ['Yey, du hast das Ziel der Stufe erreicht und kannst dir nun die nächste Stufe zur Transformation vornehmen.',
+                                'Es sind keine weiteren Schritte zur Transformation in diese Software eingepflegt. Was willst du tun? Deinen eigenen Weg gehen?']
+          format.html { render 'game/won' }
           format.json { head :no_content }
         end
       else

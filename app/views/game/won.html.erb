@@ -1,0 +1,10 @@
+<% notice.each do |n| %>
+  <p id="notice"><%= n %></p>
+<% end %>
+
+<strong>... oder nochmal spielen?</strong>
+<%= link_to 'neue Transformation', game_restart_path(@user), method: :put %>
+
+<h1>Der letzte Status deiner Transformation</h1>
+<%= render partial: 'game_state' %>
+
