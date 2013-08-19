@@ -1,0 +1,11 @@
+<h2>Aktueller Schritt zur Transformation</h2>
+
+<p><%= @user.current_step.description %></p>
+<p>Dieser Schritt ist bewältigt, wenn du folgendes erreicht hat: <%= render partial: 'state', object: @user.current_step.goal_state %></p>
+
+
+<h2>Dein aktueller Status</h2>
+
+<%= render partial: 'state', object: @user.current_state %>
+
+

@@ -2,16 +2,7 @@
 
 <h1>Wege zur Transformation</h1>
 
-<h2>Aktueller Schritt zur Transformation</h2>
-
-<p><%= @user.current_step.description %></p>
-<p>Dieser Schritt ist bewältigt, wenn du folgendes erreicht hat: <%= render partial: 'state', object: @user.current_step.goal_state %></p>
-
-
-<h2>Dein aktueller Zustand</h2>
-
-<%= render partial: 'state', object: @user.current_state %>
-
+<%= render partial: 'game_state' %>
 
 <h2>Wähle eine mögliche Aktion</h2>
 

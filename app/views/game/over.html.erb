@@ -1,0 +1,18 @@
+<% notice.each do |n| %>
+  <p id="notice"><%= n %></p>
+<% end %>
+
+
+<h1>Leider bist du auf dem Weg zur Transformation kaputt(*) gegangen</h1>
+
+<strong>ein Schritt zurück und zwei vorwärts. Willst du nochmal eine Transformation versuchen?</strong>
+<%= link_to 'neue Transformation', game_restart_path(@user), method: :put %>
+
+<br/>
+<hr/>
+<small>(*) zum Vermeiden des kaputt gehens in Transformationsprozessen: <a href='http://afb.blogsport.de/images/PAOKG_Doku_ohne.pdf'>PDF-Dokumentation einer Veranstaltungsreihe</a></small>
+<hr/>
+
+<h1>Der letzte Status deiner Transformation</h1>
+<%= render partial: 'game_state' %>
+

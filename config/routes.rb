@@ -10,6 +10,7 @@ Transformation::Application.routes.draw do
   get 'game' => 'game#login'
   get 'game/:user' => 'game#play', as: :game_play
   put 'game/:user/move/:move' => 'game#move', as: :game_move
+  put 'game/:user/restart' => 'game#restart', as: :game_restart
 
 
   # The priority is based upon order of creation: first created -> highest priority.
