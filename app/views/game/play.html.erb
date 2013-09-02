@@ -1,14 +1,20 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
+  <h3>Wege zur Transformation</h3>
+  <p id="notice"><%= notice %></p>
+</div>
+<div class="row">
+  <div class="span2">
+    <b>Wähle eine mögliche Aktion</b>
+    <% @moves.each do |move| %>
+      <p>
+        <%= render partial: 'move', object: move %><br/>
+        <%= link_to 'los!', game_move_path(@user, move), method: :put %>
+      </p>
+    <% end %>
+  </div>
+  <div class="span1"></div>
+  <div class="span3">
+    <%= render partial: 'game_state' %>
+  </div>
+</div>
 
-<h1>Wege zur Transformation</h1>
-
-<%= render partial: 'game_state' %>
-
-<h2>Wähle eine mögliche Aktion</h2>
-
-<% @moves.each do |move| %>
-  <p>
-    <%= render partial: 'move', object: move %><br/>
-    <%= link_to 'los!', game_move_path(@user, move), method: :put %>
-  </p>
-<% end %>

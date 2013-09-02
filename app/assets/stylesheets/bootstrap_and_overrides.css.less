@@ -1,0 +1,68 @@
+@import "twitter/bootstrap/bootstrap";
+body { padding-top: 20px; }
+@import "twitter/bootstrap/responsive";
+
+// Set the correct sprite paths
+@iconSpritePath: image-url("twitter/bootstrap/glyphicons-halflings.png");
+@iconWhiteSpritePath: image-url("twitter/bootstrap/glyphicons-halflings-white.png");
+
+// Set the Font Awesome (Font Awesome is default. You can disable by commenting below lines)
+@fontAwesomeEotPath: asset-url("fontawesome-webfont.eot");
+@fontAwesomeEotPath_iefix: asset-url("fontawesome-webfont.eot?#iefix");
+@fontAwesomeWoffPath: asset-url("fontawesome-webfont.woff");
+@fontAwesomeTtfPath: asset-url("fontawesome-webfont.ttf");
+@fontAwesomeSvgPath: asset-url("fontawesome-webfont.svg#fontawesomeregular");
+
+// Font Awesome
+@import "fontawesome/font-awesome";
+
+// Glyphicons
+//@import "twitter/bootstrap/sprites.less";
+
+// Your custom LESS stylesheets goes here
+//
+// Since bootstrap was imported above you have access to its mixins which
+// you may use and inherit here
+//
+// If you'd like to override bootstrap's own variables, you can do so here as well
+// See http://twitter.github.com/bootstrap/customize.html#variables for their names and documentation
+//
+// Example:
+// @linkColor: #ff0000;
+
+div.header {
+    height: 60px;
+}
+
+div.left_green {
+    background-image: asset-url("background/left.png");
+    height: 960px;
+    padding-top:200px;
+}
+
+div.right_green {
+    background-image: asset-url("background/right.png");
+    height: 853px;
+}
+
+div.icons_explained {
+    padding: 10px;
+    margin: 10px;
+    background-color: rgba(80%, 80%, 80%, 0.7);
+}
+div.icons_explained img {
+    width: 30px;
+    height: 30px;
+    padding: 5px;
+}
+
+div.content {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+div.content div {
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
