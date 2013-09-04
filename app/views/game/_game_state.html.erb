@@ -2,15 +2,14 @@
   <b>Aktueller Schritt zur Transformation</b>
 
   <p><%= @user.current_step.description %></p>
-  <p>Dieser Schritt ist bewältigt, wenn du folgendes erreicht hat: <%= render partial: 'state', object: @user.current_step.goal_state %></p>
+
 </div>
 
 
-<div class="row">
-  <b>Dein aktueller Status</b>
-  <p>
-    <%= render partial: 'state', object: @user.current_state %>
-  </p>
+<div class="row status">
+  <b>Status</b>
+  <br/>
+  <%= render partial: 'state', object: {current: @user.current_state, goal: @user.current_step.goal_state} %>
 </div>
 
 
