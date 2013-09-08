@@ -16,3 +16,5 @@
 /tmp
 
 config/data.yml
+
+public/assets
