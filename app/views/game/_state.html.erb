@@ -1,45 +1,20 @@
 <% current = state[:current] %>
 <% goal = state[:goal] %>
 
-<strong>Spread:</strong> <%= current.spread %>/<%= goal.spread %><br/>
-<%= image_tag "icons/spread.png" %> 
-<% p = (current.spread.to_f/goal.spread*100).to_i %>
-<div class="progress">
-  <span style="width: <%= p %>%;"><span><%= p %>%</span></span>
-</div>
+<table>
+  <% ['spread', 'establ','build', 'happy','time', 'transformers'].each do |key| %>
+    <tr><td>
+      <%= image_tag "icons/#{key}.png" %>
+    </td><td>
+      <% p = (current.send(key.to_sym).to_f/goal.send(key.to_sym)*100).to_i %>
+      <% color = (p <= 20 ? (p <= 0 ? 'red' : 'orange') : 'green') %>
+      <div class="progress">
+        <span class="<%= color %>" style="width: <%= [100,p].min %>%;">
+          <span><%= p %>%</span>
+        </span>
+      </div>
+    </td></tr>
+  <% end %>
+</table>
 
-<strong>Establ:</strong> <%= current.establ %>/<%= goal.establ %><br/>
-<%= image_tag "icons/establ.png" %>
-<% p = (current.establ.to_f/goal.establ*100).to_i %>
-<div class="progress">
-  <span style="width: <%= [100,p].min %>%;"><span><%= p %>%</span></span>
-</div>
-
-<strong>Build:</strong> <%= current.build %>/<%= goal.build %><br/>
-<%= image_tag "icons/build.png" %>
-<% p = (current.build.to_f/goal.build*100).to_i %>
-<div class="progress">
-  <span style="width: <%= [100,p].min %>%;"><span><%= p %>%</span></span>
-</div>
-
-<strong>Happy:</strong> <%= current.happy %>/<%= goal.happy %><br/>
-<%= image_tag "icons/happy.png" %>
-<% p = (current.happy.to_f/goal.happy*100).to_i %>
-<div class="progress">
-  <span style="width: <%= [100,p].min %>%;"><span><%= p %>%</span></span>
-</div>
-
-<strong>Time:</strong> <%= current.time %>/<%= goal.time %><br/>
-<%= image_tag "icons/time.png" %>
-<% p = (current.time.to_f/goal.time*100).to_i %>
-<div class="progress">
-  <span style="width: <%= [100,p].min %>%;"><span><%= p %>%</span></span>
-</div>
-
-<strong>Transformers:</strong> <%= current.transformers %>/<%= goal.transformers %><br/>
-<%= image_tag "icons/transformers.png" %>
-<% p = (current.transformers.to_f/goal.transformers*100).to_i %>
-<div class="progress">
-  <span style="width: <%= [100,p].min %>%;"><span><%= p %>%</span></span>
-</div>
 
